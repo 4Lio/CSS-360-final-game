@@ -1,6 +1,15 @@
 import pygame as pg
 import math
 import os
+import sys
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 import heapq
 import random
 
@@ -14,7 +23,7 @@ class Enemy:
         self.health = 50
         self.speed = 0.002
         self.walk_frames = []
-        walk_folder = 'resources/textures/enemy_walk'
+        walk_folder = resource_path('resources/textures/enemy_walk')
         for fname in sorted(os.listdir(walk_folder)):
             if fname.endswith('.png'):
                 img = pg.image.load(os.path.join(walk_folder, fname)).convert_alpha()
@@ -27,12 +36,12 @@ class Enemy:
         self.shoot_cooldown = 1000
         self.last_shot_time = 0
         self.damage = 5
-        self.shot_sound = pg.mixer.Sound('resources/sound/shotgun.wav')
+        self.shot_sound = pg.mixer.Sound(resource_path('resources/sound/shotgun.wav'))
         self.muzzle_flash_time = 150
         self.muzzle_flash_timer = 0
         self.muzzle_flash_active = False
-        self.image_idle = pg.image.load('resources/sprites/enemy_idle.png').convert_alpha()
-        self.image_shoot = pg.image.load('resources/sprites/enemy_shoot.png').convert_alpha()
+        self.image_idle = pg.image.load(resource_path('resources/sprites/enemy_idle.png')).convert_alpha()
+        self.image_shoot = pg.image.load(resource_path('resources/sprites/enemy_shoot.png')).convert_alpha()
         self.current_image = self.image_idle
 
     @property

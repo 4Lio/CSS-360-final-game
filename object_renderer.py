@@ -1,5 +1,15 @@
 import math
 import pygame as pg
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 from settings import *
 
 class ObjectRenderer:
@@ -8,9 +18,9 @@ class ObjectRenderer:
         self.game = game
         self.screen = game.screen
         self.wall_textures = self.load_wall_texures()
-        self.sky_image = self.get_texture('resources/textures/sky.png', (WIDTH, HALF_HEIGHT))
+        self.sky_image = self.get_texture(resource_path('resources/textures/sky.png'), (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
-        self.blood_screen = self.get_texture('resources/textures/blood_screen.png', (WIDTH, HEIGHT))
+        self.blood_screen = self.get_texture(resource_path('resources/textures/blood_screen.png'), (WIDTH, HEIGHT))
 
     def draw(self):
         self.draw_background()
@@ -87,9 +97,9 @@ class ObjectRenderer:
     
     def load_wall_texures(self):
         return {
-            1: self.get_texture('resources/textures/1.png'),
-            2: self.get_texture('resources/textures/2.png'),
-            3: self.get_texture('resources/textures/3.png'),
-            4: self.get_texture('resources/textures/4.png'),
-            5: self.get_texture('resources/textures/5.png')
+            1: self.get_texture(resource_path('resources/textures/1.png')),
+            2: self.get_texture(resource_path('resources/textures/2.png')),
+            3: self.get_texture(resource_path('resources/textures/3.png')),
+            4: self.get_texture(resource_path('resources/textures/4.png')),
+            5: self.get_texture(resource_path('resources/textures/5.png'))
         }

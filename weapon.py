@@ -1,4 +1,14 @@
 import pygame as pg
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 from collections import deque
 from settings import *
 from sound import *
@@ -10,7 +20,7 @@ class Weapon:
         self.images = deque()
         # Load all images in the weapon folder
         for i in range(1, 7):  
-            img = pg.image.load(f'{path}/{i}.png').convert_alpha()
+            img = pg.image.load(resource_path(f'{path}/{i}.png')).convert_alpha()
             w, h = img.get_width(), img.get_height()
             img = pg.transform.smoothscale(img, (int(w * scale), int(h * scale)))
             self.images.append(img)
