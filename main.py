@@ -1,3 +1,14 @@
+import sys
+import os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 import pygame as pg
 import sys
 from settings import *
@@ -18,7 +29,7 @@ class Game:
     def __init__(self):
         pg.init()
         pg.mouse.set_visible(False)
-        self.screen = pg.display.set_mode(RES)
+        self.screen = pg.display.set_mode(RES, pg.FULLSCREEN)
         self.clock = pg.time.Clock()
         self.delta_time = 1
         self.state = "menu"
