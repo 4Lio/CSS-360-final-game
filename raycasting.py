@@ -8,7 +8,7 @@ class RayCasting:
 
     def __init__(self, game):
         self.game = game
-        self.num_rays = NUM_RAYS  # Make sure NUM_RAYS is defined in your settings
+        self.num_rays = NUM_RAYS  
         self.ray_casting_result = []
         self.objects_to_render = []
         self.textures = self.game.object_renderer.wall_textures
@@ -105,4 +105,4 @@ class RayCasting:
 
     def update(self):
         self.ray_cast()
-        self.get_objects_to_render()
+        self.get_objects_to_render() 
