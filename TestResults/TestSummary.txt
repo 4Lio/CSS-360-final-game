@@ -1,0 +1,2 @@
+- Component test for raycasting and object_renderer: May 18 - Raycaster + object_renderer is functional and successful ingame
+- Manual tests to verify various modules, game functionality, and general gameplay: June 8 - Game is running as expected with issues already identified in KnownIssues.txt

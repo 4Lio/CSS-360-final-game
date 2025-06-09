@@ -1,0 +1,7 @@
+- Tested all player inputs ingame for accurate game response
+- Verify walls and collision detection work ingame
+- Verify shotgun hit registration on enemies ingame
+- Made sure all sounds and music work ingame 
+- Verified all player/enemy interactions work (enemy/player taking damage when hit, enemy/player dying when health <= 0)
+- Made sure graphics were rendering properly ingame
+- General gameplay to test all of the items above

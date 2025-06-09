@@ -1,0 +1,1 @@
+- Raycaster and object_renderer: This continuously runs during game runtime, and works as expected, evident in the game as graphics appear normally, and objects cannot go through walls

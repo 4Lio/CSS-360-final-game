@@ -1,0 +1,5 @@
+# Known Issues
+- Enemies sometimes unrender themselves in the player's view when they get close
+- Player occasionally spawns outside of the map. Usually happens when the player is moving during wave intermission
+- Enemies sometimes do not shoot despite being within range and line of sight of the player
+- Enemy rendering near walls can be weird, with half of their body appearing through the wall, or not rendering into view in time
